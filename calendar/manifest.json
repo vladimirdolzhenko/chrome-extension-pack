@@ -1,0 +1,18 @@
+{
+"manifest_version": 2,
+   "app": {
+      "launch": {
+         "container": "tab",
+         "web_url": "https://www.google.com/calendar/"
+      },
+      "urls": [ "https://www.google.com/calendar" ]
+   },
+   "description": "Google Calendar",
+   "icons": {
+      "128": "calendar-icon.png"
+   },
+   "name": "Google Calendar",
+   "offline_enabled": true,
+   "permissions": [ "unlimitedStorage", "notifications" ],
+   "version": "0.0.1"
+}

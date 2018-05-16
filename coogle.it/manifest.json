@@ -1,0 +1,18 @@
+{
+"manifest_version": 2,
+   "app": {
+      "launch": {
+         "container": "tab",
+         "web_url": "https://coggle.it/"
+      },
+      "urls": [ "https://coggle.it/" ]
+   },
+   "description": "Coogle.it!",
+   "icons": {
+      "128": "logo.png"
+   },
+   "name": "Coogle.it!",
+   "offline_enabled": true,
+   "permissions": [ "unlimitedStorage", "notifications" ],
+   "version": "0.0.1"
+}

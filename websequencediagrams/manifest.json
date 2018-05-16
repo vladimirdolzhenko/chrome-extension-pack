@@ -1,0 +1,18 @@
+{
+"manifest_version": 2,
+   "app": {
+      "launch": {
+         "container": "tab",
+         "web_url": "https://www.websequencediagrams.com/"
+      },
+      "urls": [ "https://www.websequencediagrams.com/" ]
+   },
+   "description": "WebSequenceDiagrams",
+   "icons": {
+      "128": "icon.png"
+   },
+   "name": "WebSequenceDiagrams",
+   "offline_enabled": true,
+   "permissions": [ "unlimitedStorage", "notifications" ],
+   "version": "0.0.1"
+}

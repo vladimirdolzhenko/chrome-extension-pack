@@ -1,0 +1,278 @@
+#wrap {
+/*	background: #fff;*/
+	margin: 0 auto 0 auto;
+	overflow: hidden;
+/*	box-shadow: 0 0 10px #ddd;
+	border-radius: 5px;*/
+	display: none;
+	border: none;
+	background: transparent;
+}
+#loading {
+	margin: 10% 0;
+	font-size: 18px;
+	text-align: center;
+}
+#controls {
+	margin: 15px 0 25px 0;
+	position: relative;
+	text-align: center;
+}
+	#controls #btn-reset {
+		margin-right: 15px;
+	}
+	#controls #zone {
+		margin-left: 40px;
+		width: 250px;
+	}
+	#title {
+		font-family: Georgia, Times, Helvetica Neue, Helvetica, Arial;
+		text-align: center;
+		color: #444;
+		margin: 0;
+		font-size: 20px;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		margin: 0 0 15px 0;
+	}
+	#controls #add-form {
+		display: inline-block;
+	}
+#clocks {
+	text-align: center;
+}
+#clocks .clock {
+	width: 190px;
+	display: block;
+	display: inline-block;
+	margin: 0 30px 40px 0;
+	position: relative;
+	overflow: hidden;
+	cursor: move;
+}
+	#clocks  .delete {
+		background: #ddd;
+		text-decoration: none;
+		font-weight: bold;
+		color: #aaa;
+		line-height: 17px;
+		text-align: center;
+		
+		padding: 2px;
+		
+		width: 18px;
+		height: 18px;
+		
+		display: none;
+
+		position: absolute;
+		right: 0;
+		bottom: 6px;
+
+		border-radius: 5px;
+	}
+	#clocks  .delete:hover {
+		background: #ff0000;
+		color: #fff;
+	}
+	#clocks .clock:hover .delete {
+		background: #ff0000;
+		color: #fff;
+		display: block;
+	}
+	.phone #clocks .delete {
+		display: block;
+	}
+	
+#clocks canvas {
+	display: block;
+}
+#clocks  .zone {
+/*	background: #383839 url('bg.png') bottom left repeat-x;
+	color: #fff;*/
+	color: black;	
+	display: inline-block;
+	margin-top: 15px;
+	padding: 5px;
+	
+/*	 border-radius: 4px;*/
+}
+#clocks .time {
+	font-size: 40px;
+	color: #000;
+}
+	#clocks .time .sec,
+	#clocks .time .am,
+	#clocks .time .offset {
+		font-size: 14px;
+		display: block;
+		position: absolute;
+		right: 8px;
+		top: 8px;
+	}
+	#clocks .time .offset {
+		top: 44px;
+		font-size: 11px;
+		color: #666;
+	}
+	#clocks .date {
+		font-size: 11px;
+		text-align: left;
+		position: absolute;
+		left: 8px;
+		top: 8px;
+		color: #666;
+	}
+	#clocks .time .am {
+		top: 26px;
+	}
+
+#footer {
+	font-size: 12px;
+	margin-top: 25px;
+	text-align: center;
+	font-size: 11px;
+	color: #999;
+	line-height: 18px;
+}
+	#footer img {
+		padding-top: 10px;
+	}
+
+noscript {
+	font-size: 16px;
+	color: #ff0000;
+	text-align: center;
+}
+a {
+	color: #999;
+	text-decoration: none;
+}
+a img {
+	border: 0;
+}
+
+h1, h2, h3, h4 {
+	margin: 0 0 0px 0;
+	font-weight: normal;
+}
+
+input, button, select, .button {
+	background: #383839 url('bg.png') bottom left repeat-x;
+	color: #fff;
+	border: 1px solid #000;
+	border-radius: 3px;
+	padding: 5px;
+}
+input {
+	background: #444;
+	border-color: #333;
+}
+
+.error {
+	text-align: center;
+	display: block;
+	margin: 40px 0;
+	color: #FF9900;
+}
+
+button:hover,
+.button:hover {
+	background: #111;
+	cursor: pointer;
+}
+.clear {
+	clear: both;
+}
+
+/* ________________________________ */
+
+.analog .clock {
+	background: url('face190.png') no-repeat;
+}
+.digital .clock {
+	background: #eee;
+	border: 1px solid #ccc;
+	padding: 4px 0 8px 4px;
+	border-radius: 5px;
+}
+.digital .delete {
+	right: 5px !important;
+	bottom: 10px !important;
+}
+
+.autocomplete{
+	background: #444;
+	cursor: pointer;
+	font-size: 12px;
+	color: #fff;
+	padding: 5px;
+	border-radius: 0 0 5px 5px;
+}
+.autocomplete .normal{
+	margin-bottom: 8px;
+	overflow: hidden;
+	white-space: pre;
+	padding: 2px;
+	border-radius: 4px;
+}
+.autocomplete .highlited{ font-weight: bold; }
+.autocomplete .selected { background: #222; }
+
+/* ________________________________ */
+
+.dark {
+	background: #1d1d1d;
+	color: #999;
+}
+.dark #title {
+	color: #fff;
+}
+.dark a {
+	color: #666;
+}
+.dark #wrap {
+	background: #151515;
+	box-shadow: 0 0 20px #111;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: #111;
+}
+.dark #controls {
+	background: none;
+}
+.dark #clocks .zone {
+	border: 1px solid #666;
+}
+.dark #clocks .time {
+	color: #fff;
+
+}
+.dark #clocks .date {
+	color: #999;
+}
+.dark button, .dark select, .dark input, .dark .button {
+	color: #ddd;
+	border: 1px solid #666;
+}
+.dark .input {
+	background: #383839;
+}
+.dark .digital  .clock {
+	background: #212121;
+	border: 1px solid #444;
+}
+
+
+.dark .autocomplete{
+	border: 1px solid #666;
+}
+.dark .autocomplete .normal{
+	border-color: #666;
+}
+
+.dark #footer a,
+.dark #footer {
+	color: #555;
+}
+

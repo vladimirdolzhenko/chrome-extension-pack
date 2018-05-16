@@ -1,0 +1,61 @@
+body {
+	display:block;
+	background: {$cssBackground};
+}
+
+h2 {
+	color: {$cssButtonText};
+}
+
+div#divAbout h3 { 
+	border-bottom:1px dotted {$cssFrameBorder}; 
+}
+
+body > div {
+	border:1px solid {$cssFrameBorder};
+	background:{$cssFrameBackground};
+}
+
+div#divBookmarks span, div#divFavs span { 
+	color:{$cssButtonText};
+}
+
+a.icon td { color: {$cssButtonText}; }
+
+a.icon:link , a.icon:visited {
+	color: {$cssButtonText};
+}
+
+a.icon:focus, a.icon:active, a.icon:hover {
+	background:{$cssButtonHover};
+}
+
+
+#pOther a:link, #pOther a:visited  {
+	color:{$cssButtonText};
+	
+}
+
+#pOther a:focus, #pOther a:active, #pOther a:hover  {
+	background-color:{$cssButtonHover};
+	color:{$cssButtonText};
+}
+
+
+div.context {
+	border:2px solid {$cssFrameBorder};
+	background:{$cssSolidBackground};
+}
+
+div.context span, div.context a:link, div.context a:visited {
+	color:{$cssButtonText};
+}
+
+div.context span:hover, div.context a:focus, div.context a:active, div.context a:hover {
+	background:{$cssButtonHover};
+}
+
+div.context h3 {
+	color:{$cssButtonText};
+	border-bottom:1px dotted {$cssFrameBorder};
+}

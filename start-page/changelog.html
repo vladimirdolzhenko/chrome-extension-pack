@@ -1,0 +1,137 @@
+<html>
+	<head>
+		<title>Changelog</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href='options.css' rel='stylesheet' type='text/css' />
+	</head>
+	
+	<body>
+	
+		<h1>Changelog - Bookmark Buttons Startpage</h1>
+		
+		<p>
+			<a href="startpage.html">Startpage</a>
+			<a href="options.html">Options</a>	
+			<a href="changelog.html">Changelogs</a>
+			<a href="privacy.html">Privacy</a>
+			<a href="donate.html">Donate!</a>
+		</p>
+
+
+		<h2>Version 1.2</h2>
+		<fieldset>
+
+			<h3>1.2.2</h3>
+			
+			<ul>
+				<li>Fixed a bug that would occur when changing themes; As it turns out, Google Chrome 15 does throw an error when you're trying to use /s with regular expressions.</li>
+				<li>Updated jQuery to the recent version for a minor performance boost.</li> 
+			</ul>
+		
+			<h3>1.2.1</h3>
+			
+			<ul>
+				<li>Changed the behaviour of how links on the startpage open, because version 10 of Chrome would not update the tab URL properly.</li>
+				<li>Folders can now be opened in a new window.</li>
+				<li>The browser back button now works in folder navigation with the exception that it will behave weirdly if you used both top and bottom folders in one page instance.</li> 
+				<li>You can now choose to entirely disable the 'Other Bookmarks' section as well as the 'Bookmarks Bar' folder. The latter however only has a significant effect if you don't have any apps installed.</li>
+				<li>Added a donations section to the options pages.</li>
+				<li>Fixed a minimal glitch in the main stylesheet.</li>
+				<li>New themes since last version: Plain Grey</li>
+			</ul>
+		
+		
+			<h3>1.2.0</h3>
+			
+			<ul>
+				<li>Themes can now be customized entirely, either by using the existing interface or by writing your own css codes.</li>
+				
+				<li>The list of predefined themes now is stored on a website and can be extended without forcing the extension to be updated.</li>
+						
+				<li>Added right-click context menus to bookmarks, apps and folders.</li>
+				
+				<li>You can now edit some properties of your bookmarks through the context menu. Still, I recomment using the bookmark manager for organizing your bookmarks.</li>
+				
+				<li>You can now open all bookmarks in a folder by right-clicking on it and selecting the option "<i>Open all bookmarks in this folder</i>".</li>
+				
+				<li>You can now search for an installed app in the webstore through the context menu.</li>
+			
+				<li>Removed the theme images from the extension. They now load from my webserver instead. This reduces the extension file size down to ~140kb again.</li>
+				
+				<li>Removed the page caption ("<i>New Tab</i>") entirely.</li>
+				
+				<li>Removed the copyright notice on the bottom entirely. Who cares anyway?</li>
+				
+				<li>The installation process has been rewritten in order to improve the user experience.</li>				
+				
+				<li>Fixed a bug where bookmark folders in the top bar would not open.</li>
+			</ul>
+			
+			<h3>See also:</h3>
+			<ul>
+				<li><a href="http://blog.gvm-it.eu/post/3504666240/finalizing-version-1-2-of-the-bookmark-buttons">Finalizing version 1.2 of the Bookmark Buttons Startpage</a> (blog)</li>
+				<li><a href="http://blog.gvm-it.eu/post/3390117143/bookmark-buttons-startpage-has-300-users">Bookmark Buttons Startpage has 300 users</a> /blog)</li>
+				<li><a href="http://blog.gvm-it.eu/post/2977480666/open-multiple-bookmarks-with-one-click-a-new-feature">Open multiple bookmarks with one click, a new feature for the bookmark buttons startpage</a> (blog)</li>
+				<li><a href="http://blog.gvm-it.eu/post/2780294751/bookmark-buttons-startpage-has-100-users">Bookmark Buttons Startpage has 100 users</a> (blog)</li>
+			</ul>
+		</fieldset>
+	
+		<h2>Version 1.1</h2>
+		<fieldset>
+			<h3>1.1.1</h3>
+			
+			<ul>
+				<li>Improved handling of the Chrome API not really being ready.</li>
+			</ul>
+		
+		
+			<h3>1.1.0</h3>
+			
+			<ul>
+				<li>Changed the overall appearance so it works better with the newly introduced themes.</li>
+				
+				<li>Added support for themes. Uses can now choose from a handfull of predefined themes.</li>
+				
+				<li>Overall script redesign. Long story short, it now does everything in a much nicer way and the code and file architecture looks more shiny.</li>
+				<li>Most strings in the startpage itself were prepared to be internationalized using the chrome.i18n interface.</li>
+				
+				<li>This extension now stores user preferences which can be edited through the options page.</li>				
+				
+				<li>Added an options page, a privacy page and created this changelogs page. Removed the 'about' page and split its content around the other pages.</li>
+				
+				<li>New themes: Burnt Orange, Clouds, Dark Trees, Polka, White Sand and Yellow Trees. Background images by courtesy of <a href="http://webtreats.mysitemyway.com/">mysitemyway.com</a></li>
+			</ul>
+			
+			<h3>See also:</h3>
+			<ul>
+				<li><a href="http://webtreats.mysitemyway.com/">MySiteWay Webtreats</a> - cool patterns, free for personal and commercial use!</li>
+				<li><a href="http://blog.gvm-it.eu/post/2677850504/bookmark-buttons-startpage-1-1-released">Bookmark Buttons Startpage 1.1 released</a> (blog)</li>
+				<li><a href="http://blog.gvm-it.eu/post/2638701866/coming-up-next-themes-for-the-bookmark-button">Coming up next: Themes for the Bookmark Button Startpage</a> (blog)</li>
+				<li><a href="http://blog.gvm-it.eu/post/2638701866/coming-up-next-themes-for-the-bookmark-button">Replacing variables in CSS using JavaScript</a> (blog)</li>			
+			</ul>
+		</fieldset>
+	
+	
+		<h2>Version 1.0</h2>
+		<fieldset>
+			
+			<h3>1.0.2</h3>
+			
+			<p>Changed some minor setting issues associated with the manifest file and the appearance of this extension in the Chrome Webstore.</p>
+			
+			<h3>1.0.0</h3>
+			<p>This extension was created. Not much more to say.</p>	
+			
+			<h3>See also:</h3>
+			<ul>
+				<li><a href="http://blog.gvm-it.eu/post/2603647112/introducing-bookmark-button-startpage">Introducing: Bookmark Button startpage</a> (blog)</li>
+				<li><a href="http://blog.gvm-it.eu/post/2590030120/finalizing-the-bookmark-button-startpage">Finalizing the Bookmark Button startpage</a> (blog)</li>
+				<li><a href="http://blog.gvm-it.eu/post/2582086445/motivation-for-a-chrome-startpage-replacement">Motivation for a Chrome startpage replacement</a> (blog)</li>
+			</ul>
+			
+		</fieldset>	
+	
+		<p>Only the updates that were uploaded to the webstore are listed.</p>
+	
+	</body>
+</html>

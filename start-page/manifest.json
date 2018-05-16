@@ -1,0 +1,20 @@
+{
+   "manifest_version": 2,
+   "chrome_url_overrides": {
+      "newtab": "startpage.html"
+   },
+   "default_locale": "en",
+   "description": "__MSG_manifest_description__",
+   "icons": {
+      "128": "img/128.png",
+      "16": "img/16.png",
+      "48": "img/48.png"
+   },
+   "minimum_chrome_version": "8.0.0.0",
+   "name": "__MSG_manifest_name__",
+   "options_page": "options.html",
+   "permissions": [ "bookmarks", "chrome://favicon/", "management", "tabs" ],
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+   //"update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.2.2"
+}

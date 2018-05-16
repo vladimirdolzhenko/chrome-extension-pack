@@ -1,0 +1,273 @@
+<html>
+	<head>
+		<title>Options</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href='options.css' rel='stylesheet' type='text/css' />
+		<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="class.js"></script>
+		<script type="text/javascript" src="colorpicker.js"></script>
+		<script type="text/javascript" src="options.js"></script>
+	</head>
+
+	<body>
+
+		<h1>Options - Bookmark Buttons Startpage</h1>
+		
+		<p>
+			<a href="startpage.html">Startpage</a>
+			<a href="options.html">Options</a>	
+			<a href="changelog.html">Changelogs</a>
+			<a href="privacy.html">Privacy</a>
+			<a href="donate.html">Donate!</a>
+		</p>
+		
+		<fieldset>
+			<table border="0" width="100%" cellspacing="2" cellpadding="2">
+				
+				<tr>
+					<td>Author:</td>
+					<td>Geerten van Meel</td>
+					<td>Version:</td>
+					<td id="version"></td>
+				</tr>			
+			
+				<tr>
+					<td>Homepage:</td>
+					<td><a href="http://blog.gvm-it.eu/">blog.gvm-it.eu</a></td>
+					<td>Last update:</td>
+					<td id="updated"></td>
+				</tr>
+				<tr>
+					<td>Feedback:</td><td><a href="mailto:klovadis@gmail.com">klovadis@gmail.com</a></td>
+					<td>Webstore:</td><td><a href="https://chrome.google.com/webstore/detail/genmiebglliamphdcfeakonfebajldkj">Visit Webstore</a></td>
+				
+				</tr>			
+			
+			</table>
+			
+			<img src="img/128.png" alt="Bookmark Buttons Startpage" width="64" height="64" style="float:left; margin:8px;" />
+			<p>The purpose of this extension is to make the newtab page more useful for those of us who use a lot of bookmarks and dislike the way Chrome serves them. It overrides the new tab page and displays a grid of your apps and bookmarks.</p>
+			
+		</fieldset>
+	
+		
+		<h2>Appearance</h2>
+		
+		<fieldset id="themeFieldset">
+		
+			<p>Chose one of the following predefined themes or apply your own theme to the Bookmark Button Startpage.</p>
+		
+			<label for="themeType">
+			
+				Choose what type of theme you want:
+				<select size="0" id="themeType" title="Choose which kind of theme basis you want to use.">
+					<option value="predefined">Predefined theme</option>
+					<option value="solid">Solid color background</option>
+					<option value="gradient">Color gradient background</option>
+					<option value="image">Background image</option>
+					<option value="custom">Custom css code</option>
+				</select>
+			</label>		
+		
+			<!-- predefined theme list -->
+			<div id="divPredefinedTheme">
+				<h3>Predefined themes</h3>
+				<label for="predefinedTheme">
+					Pick one of the following predefined themes:
+					<select size="0" id="predefinedThemes">
+						<option value="">loading themes ..</option>
+					</select>
+				</label>
+				<p class="center"><b id="predefinedTitle"></b> by <a href="" id="predefinedAuthor" target="_BLANK"></a> (<span id="predefinedDate"></span>)
+					<img id="predefinedImage" src="" width="400" height="275" alt="No preview image available" />				
+				</p>
+			</div>
+			
+			<div id="divSolidBackground">
+				<h3>Theme with single color background</h3>
+				<label for="clrSolidBackground">
+					Window background color:
+					<button onclick="window.Colors.popup(this, '#clrSolidBackground');" class="colorPicker"></button>
+					<input type="text" id="clrSolidBackground" value="" size="4" class="localStorage color" />				
+				</label>
+			</div>
+
+			<div id="divGradientBackground">
+				<h3>Theme with color gradient background</h3>
+				
+				<label>
+					Gradient direction:
+					<select size="0" id="gradientDirection" class="localStorage">
+						<option value="center top, center bottom">top - bottom</option>
+						<option value="center top, left bottom">top right - bottom</option>
+						<option value="right top, left bottom">top right - bottom left</option>
+						<option value="right center, left center">right - left</option>
+						<option value="right center, left top">right - top left</option>
+						<option value="right bottom, left top">bottom left - top right</option>
+					</select>
+				</label>
+				
+				<label for="gradientColor1">
+					Gradient color one:
+					<button onclick="window.Colors.popup(this, '#gradientColor1');" class="colorPicker"></button>
+					<input type="text" id="gradientColor1" value="" size="4" class="localStorage color" />				
+				</label>
+				<label for="gradientColor2">
+					Gradient color two:
+					<button onclick="window.Colors.popup(this, '#gradientColor2');" class="colorPicker"></button>
+					<input type="text" id="gradientColor2" value="" size="4" class="localStorage color" />				
+				</label>
+				
+			</div>
+			
+			<div id="divImageBackground">
+				<h3>Theme with background image</h3>
+				<label for="bgImageUri">
+					Background image adres:
+					<!--<button class="previewImage" title="Check whether image is found. It should display the image in a new window."></button>-->
+					<input type="text" id="bgImageUri" value="" size="40" class="localStorage" title="Enter the adres (URL) of the image that you want to use as a background" />				
+				</label>
+				
+				<label for="bgImagePosition">
+					Background orientation:
+					<select size="0" id="bgImagePosition" class="localStorage" title="Choose where the background is positioned if it does not fit your screen.">
+						<option value="center">Centered</option>
+						<option value="center top">Centered, top</option>
+						<option value="center bottom">Centered, bottom</option>
+						<option value="center left">Centered, left</option>
+						<option value="center right">Centered, right</option>
+						<option value="top left">Top left</option>
+						<option value="top right">Top right</option>
+						<option value="bottom left">Bottom left</option>
+						<option value="bottom right">Bottom right</option>
+					</select>
+				</label>
+
+				<label for="bgImageRepeatYes">
+					<input type="radio" name="inputBackgroundRepeat" id="bgImageRepeatYes" value="repeat" />
+					Repeat the image if it is smaller than the screen.
+				</label>
+
+				<label for="bgImageRepeatNo">
+					<input type="radio" id="bgImageRepeatNo"  name="inputBackgroundRepeat" value="no-repeat" />
+					Use this color if the image is smaller than the screen:
+					<button onclick="window.Colors.popup(this, '#bgImageBackground');" class="colorPicker"></button>
+					<input type="text" id="bgImageBackground" value="" size="4" class="localStorage color" />	
+				</label>
+				
+			</div>
+
+			<!-- shared colors for solid, gradient and image backgrounds -->
+			<div id="divSharedColors">
+			
+				<label for="clrFrameBorder">
+					Frame border color:
+					<button onclick="window.Colors.popup(this, '#clrFrameBorder');" class="colorPicker"></button>
+					<input type="text" id="clrFrameBorder" value="" size="4" class="localStorage color" />
+				</label>
+			
+				<label for="clrFrameBackground">
+					Frame background color:
+					<button onclick="window.Colors.popup(this, '#clrFrameBackground');" class="colorPicker"></button>
+					<input type="text" id="clrFrameBackground" value="" size="4" class="localStorage color" />				
+				</label>
+			
+				<label for="clrButtonText">
+					Bookmark button text color:
+					<button onclick="window.Colors.popup(this, '#clrButtonText');" class="colorPicker"></button>
+					<input type="text" id="clrButtonText" value="" size="4" class="localStorage color" />				
+				</label>
+			
+				<label for="clrButtonHover">
+					Bookmark button background color:
+					<button onclick="window.Colors.popup(this, '#clrButtonHover');" class="colorPicker"></button>
+					<input type="text" id="clrButtonHover" value="" size="4" class="localStorage color" />				
+				</label>
+				
+				<label for="clrContextBackground">
+					Context menu background:
+					<button onclick="window.Colors.popup(this, '#clrContextBackground');" class="colorPicker"></button>
+					<input type="text" id="clrContextBackground" value="" size="4" class="localStorage color" />				
+				</label>
+
+			</div>
+
+			<!-- entirely custom theme css -->
+			<div id="divCustomTheme">
+				<h3>Theme with custom css code</h3>
+	
+				<p>You can enter arbitrary css values here. In parenthesis is the context of which you can enter css attribute values. This feature is for users that know webdesign basics.</p>
+				<label for="cssFrameBorder">
+					Frame border style (<i>border</i>):
+					<input type="text" id="cssFrameBorder" size="40" value="" class="localStorage" />				
+				</label>
+
+				<label for="cssFrameBackground">
+					Frame background (<i>background</i>):
+					<input type="text" id="cssFrameBackground" size="40" value="" class="localStorage" />				
+				</label>
+				
+				<label for="cssSolidBackground">
+					Context menu background (<i>background</i>):
+					<input type="text" id="cssSolidBackground" value="" size="40" class="localStorage" />				
+				</label>
+				
+				<label for="cssBackground">
+					Window background (<i>background</i>):
+					<input type="text" id="cssBackground" value="" size="40" class="localStorage" />				
+				</label>
+				
+				<label for="cssButtonText">
+					Bookmark button text color (<i>color</i>):
+					<input type="text" id="cssButtonText" value="" size="40" class="localStorage" />				
+				</label>			
+				
+	 			<label for="cssButtonHover">
+					Bookmark button background color (<i>background</i>):
+					<input type="text" id="cssButtonHover" value="" size="40" class="localStorage" />				
+				</label>			
+ 			</div>
+
+			<p class="center">
+				<button onclick="window.Options.applyTheme();">Apply Theme</button>
+				
+			</p>
+		</fieldset>
+		
+		
+		<h2>Various Settings</h2>
+		
+		<fieldset>
+		
+			<label>
+				<input type="checkbox" id="showAppNames" />
+				Show big icons for installed apps instead of small icons plus text.
+			</label>
+		
+			<label>
+				<select size="0" id="bookmarkBar">
+					<option value="-1">** hide bookmark bar **</option>
+				</select>	
+				Which bookmark folder will appear on the top bar of the startpage? This usually is the <b>Bookmark Bar</b>, but you can change that. You may also opt to leave the top box empty, but this only works if you don't have any apps installed.
+			</label>
+		
+			<label>
+				<select size="0" id="bookmarkFolder">
+					<option value="-1">** hide bottom folder **</option>
+				</select>	
+				Which bookmark folder do you want to display at the bottom box initially when the startpage loads? This usually is the <b>Other Bookmarks</b> folder. You can disable the bottom folder as well, if you want to store all your bookmarks in the Bookmarks Bar folder.
+			</label>		
+		
+		</fieldset>
+		
+		<h2>Reset Settings</h2>
+		<fieldset>
+			<label>
+			<button onclick="Options.defaultSettings();">Reset Settings</button>
+			Click to reset all stored settings to their default values.
+			</label>
+		</fieldset>
+
+
+	</body>
+</html>

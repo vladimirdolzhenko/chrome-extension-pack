@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>New Tab</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href='startpage.css' rel='stylesheet' type='text/css' />
+		<link href="clocks.css" rel="stylesheet" type="text/css" />
+		<link href="white.css" rel="stylesheet" type="text/css" />
+		<!--script type="text/javascript" src="jquery-1.10.2.min.js"></script-->		
+		<!-- clocks.js already has jquery -->
+		<script type="text/javascript" src="clocks.js"></script>
+		<script type="text/javascript" src="class.js"></script>
+		<script type="text/javascript" src="startpage.js"></script>
+	</head>
+
+	<body>
+		
+		<div id="divFavs" class="div"></div>
+
+		<div id="divBookmarks" class="div">
+			<h2 id="h2Bookmarks"></h2>
+			<p class="notice">Extension is being loaded..</p>
+		</div>
+
+		<div id="wrap">
+			<div id="controls">
+				<!--h1 id="title">World Clocks</h1-->
+				<div style="display:none">
+				<button id="btn-reset">reset</button>
+				<button id="btn-theme">dark</button>
+				<button id="btn-mode">digital</button>
+				<form id="add-form" action="" method="post">
+					<div>
+						<input id="zone" type="text" value="please enter a city" /> <input type="submit" class="button" id="btn-add" value="add" />
+					</div>
+				</form>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		
+			<div id="clocks"> </div>
+		</div>
+		<div id="loading">loading...</div>
+		
+	</body>
+</html>

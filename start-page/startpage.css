@@ -1,0 +1,233 @@
+html { min-height:100%; width:100%; margin:0px; padding:0px; }
+body { 
+	/*width:100%; height:100%; */
+	min-height:90%;
+	margin:0px; padding:0px; 
+	font-family:Verdana;
+	display:none;
+}
+	
+div.div > h1 {
+	width:1000px;
+	margin:32px auto 0px auto; padding:0px;
+	font-size:24px;
+	font-style:italic;
+	text-indent:18px;
+	font-family:Arial;
+}
+
+
+div.div > h2 {
+	width:800px;
+	margin:4px auto 0px auto; padding:0px;
+	font-size:16px;
+	text-indent:18px;
+	font-family:Arial;
+}
+
+div.div > h2#h2Bookmarks {
+	padding-left:4px; width:764px;
+	background:url(img/folder.png) no-repeat top left;
+}
+
+
+div#divFavs { 
+	height:25px; 
+	border-top-right-radius:16px;
+	border-top-left-radius:16px;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+	border-style:solid;
+	border-width:1px;
+}
+
+div#divFavs.noBookmarks {
+	border-bottom-right-radius:16px;
+	border-bottom-left-radius:16px;	
+}
+
+div#divBookmarks { 
+	height:132px; 
+	border-bottom-right-radius:16px;
+	border-bottom-left-radius:16px;
+	border-top-right-radius:4px;
+	border-top-left-radius:4px;
+	border-style:solid;
+	border-width:1px;
+}
+
+div#divAbout { margin-bottom:18px; }
+div#divAbout p { text-align:justify; margin:12px 40px; font-size:14px; }
+div#divAbout h3 { margin:18px 40px 8px 40px; font-size:16px; text-indent:16px; font-family:Arial; }
+div#divAbout img { float:left; margin:0px 8px 8px 48px; }
+div#divAbout li { font-size:14px; margin-left:40px; padding-bottom:8px; }
+
+body > div.div, body > div.div {
+	width:1000px; height:auto;
+	position:relative;
+	margin:6px auto;
+}
+
+body > div:first-child { margin-top:40px; }
+
+div#divBookmarks p.notice, div#divFavs p.notice {
+	margin-top:32px;
+	font-size:12px; text-align:center;
+	color:#808080;
+	display:none;
+}
+
+div#divBookmarks span, div#divFavs span { 
+	display:block; 
+	position:absolute; 
+	top:0px; 
+	right:0px; 
+	font-size:12px;
+	padding:8px 10px 16px 8px;
+	z-index:10;
+	font-weight:bold;
+}
+
+
+a.icon:link , a.icon:visited {
+	position:absolute; display:block; overflow:hidden;
+	width:88px; height:88px;
+	background:transparent;
+	background-repeat:no-repeat;
+	background-position:center 24px;	
+	border:1px solid rgba(0,0,0,0);
+	-webkit-border-radius: 12px;
+}
+
+a.icon:focus, a.icon:active, a.icon:hover { }
+
+a.icon table { width:100%; height:100%; margin:0px; padding:0px; table-layout:fixed; border:none; }
+a.icon td { text-align:center; font-size:11px; vertical-align:top; }
+a.icon tr:first-child td { vertical-align:bottom; } 
+a.icon img { width:24px; height:24px; }
+
+a.icon img { 
+	min-width:24px; min-height:24px;
+	max-width:80px; max-height:80px;
+}
+
+a.icon img.large {
+	min-width:64px; min-height:64px;
+	max-width:80px; max-height:80px;
+} 
+
+
+
+/* buttons */
+a.btnBack {
+	display:block; position:absolute; 
+	top:48px; left:0px;
+	width:36px; height:32px;
+	background:url(img/btnback.png) no-repeat center;
+}
+
+a.btnUp {
+	display:block; position:absolute; 
+	top:64px; left:3px;
+	width:32px; height:32px;
+	background:url(img/btnup.png) no-repeat center;
+}
+
+a.btnDown {
+	display:block; position:absolute; 
+	bottom:4px; left:3px;
+	width:32px; height:32px;
+	background:url(img/btndown.png) no-repeat center;
+}
+
+a.btnSettings {
+	display:block; position:absolute; 
+	top:3px; left:3px;
+	width:32px; height:32px;
+	background:url(img/btnsettings.png) no-repeat center;
+}
+
+
+#pOther {
+	position:absolute; top:0px; width:100%;
+	margin:0px; padding:0px;
+	text-align:center;
+	font-size:12px;
+}
+
+#pOther a:link, #pOther a:visited  {
+	display:inline-block;
+	padding:4px 12px 8px 12px;
+	text-decoration:none;
+	border-bottom-right-radius:8px;
+	border-bottom-left-radius:8px;
+}
+
+#pOther a:focus, #pOther a:active, #pOther a:hover  {
+	text-shadow:none;
+}
+
+
+/* context menu */
+
+
+div.context {
+	position:absolute; overflow:expand;
+	width:160px; min-height:40px;
+	max-width:400px;
+	border-radius:4px; padding:8px 4px;
+}
+
+div.context h3 {
+	margin:2px 0px 4px 0px; padding-left:18px; padding-bottom:2px;
+	font-size:14px;
+	font-family:Arial;
+	background:url(img/btnedit.png) no-repeat top left;
+}
+
+div.context span, div.context a:link, div.context a:visited {
+	display:block; 
+	padding:4px 2px 4px 18px; margin:2px 1px 2px 1px;
+	font-size:12px;
+	border-radius:2px;
+	cursor:pointer;
+	text-decoration:none;
+}
+
+div.context span:hover, div.context a:focus, div.context a:active, div.context a:hover {
+	text-decoration:none;
+}
+
+div.context hr { border:none; height:8px; }
+
+
+
+/* popups */
+div.popup {
+	position:absolute; overflow:expand;
+	width:auto; height:auto;
+	border-radius:8px; padding:16px 4px;
+	border:2px solid #000000;
+	background-color: #FFFFFF;
+}
+
+div.popup h2 { 
+	text-align:center; 
+	font-size:14px;
+}
+
+div.popup h3 {
+	margin:2px 0px 4px 0px; padding-left:2px; padding-bottom:2px;
+	font-size:14px;
+	font-family:Arial;
+	border-bottom:1px dotted #000000;
+}
+
+div.popup p { font-size:12px; }
+
+div.popup button {
+	display:block; 
+	width:60%; height:32px;
+	float:none;
+	margin:8px 20% 0px 20%;
+}

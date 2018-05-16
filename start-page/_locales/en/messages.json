@@ -1,0 +1,102 @@
+{
+   "apps_tooltip": {
+      "description": "",
+      "message": "Here go your apps and bookmarks bar bookmarks."
+   },
+   "backbutton_tooltip": {
+      "description": "",
+      "message": "Go to parent folder"
+   },
+   "link_bookmarks": {
+      "description": "",
+      "message": "Bookmarks"
+   },
+   "link_bookmarks_tooltip": {
+      "description": "",
+      "message": "Open the bookmark manager"
+   },
+   "link_downloads": {
+      "message": "Downloads"
+   },
+   "link_downloads_tooltip": {
+      "message": "View a list of the recently downloaded files"
+   },
+   "link_extensions": {
+      "description": "",
+      "message": "Extensions"
+   },
+   "link_extensions_tooltip": {
+      "description": "",
+      "message": "Manage your Google Chrome extensions"
+   },
+   "link_history": {
+      "message": "History"
+   },
+   "link_history_tooltip": {
+      "message": "View your browsing history"
+   },
+   "link_options": {
+      "description": "",
+      "message": "Options"
+   },
+   "link_options_tooltip": {
+      "description": "",
+      "message": "Make your preferences for this extension"
+   },
+   "link_webstore": {
+      "description": "",
+      "message": "Webstore"
+   },
+   "link_webstore_tooltip": {
+      "description": "",
+      "message": "Visit the Google webstore"
+   },
+   "manifest_description": {
+      "description": "",
+      "message": "A startpage replacement that allows quick access to your apps and bookmarks."
+   },
+   "manifest_name": {
+      "description": "",
+      "message": "Bookmark Buttons Startpage"
+   },
+   "msg_empty_favs": {
+      "description": "",
+      "message": "This folder does not contain any bookmarks or applications."
+   },
+   "msg_empty_folder": {
+      "description": "",
+      "message": "This folder does not contain any bookmarks."
+   },
+   "popup_button_close": {
+      "description": "",
+      "message": "Close"
+   },
+   "popup_button_continue": {
+      "description": "",
+      "message": "Continue"
+   },
+   "popup_installed_caption": {
+      "description": "",
+      "message": "Installation successful"
+   },
+   "popup_installed_text": {
+      "description": "",
+      "message": "The Bookmark Button Startpage extension has been installed successfully. Please leave a review in the Chrome Webstore!"
+   },
+   "theme_error": {
+      "description": "",
+      "message": "There is an error in the supplied theme"
+   },
+   "title_all_bookmarks": {
+      "description": "",
+      "message": "All bookmarks"
+   },
+   "title_new_tab": {
+      "description": "",
+      "message": "New Tab"
+   },
+   "z": {
+      "description": "",
+      "message": ""
+   }
+}
