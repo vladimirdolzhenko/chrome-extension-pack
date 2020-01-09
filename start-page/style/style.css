@@ -1,0 +1,217 @@
+* {margin:0; padding:0;color:#999999 ;text-align:center;}
+
+body, html {
+	width:100%;
+	height:100%;
+	overflow: hidden;
+	-webkit-user-select: none;
+}
+
+body {
+	font-family: arial;
+	font-size: 13px;
+	font-weight:normal;
+}
+
+#main {
+	border-radius: 15px;
+	width:97%; /*If to set 100% can't see right and bottom border, bug in FVD speed dial?*/
+	height:98%;
+	padding-left:5px;
+	border:1px solid rgba(128, 128, 128, 0);
+}
+
+#body:hover > #main {
+	border:1px solid rgba(128, 128, 128, 0.6);
+}
+
+#body:hover > #main div.contolls {
+	visibility:visible;
+}
+
+.recently_caption {
+	padding:3px;
+	font-weight:bold;
+}
+
+#worldclock {
+	margin: 0 auto;
+	width: 960px;
+	height: 100%;
+	border: none;
+	background: none;
+}
+
+.worldclock_less {
+	width:100%;
+	height:100%;
+	/* W3C */
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+}
+
+.worldclock_more {
+	width:100%;
+	height:100%;
+}
+
+div.worldclock_less  .clock_wrapper {
+	width:240px;
+	height:240px;
+	text-align:center;
+	overflow:hidden;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+div.worldclock_more .clock_wrapper {
+	width:240px;
+	height:240px;
+	text-align:center;
+	overflow:hidden;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float:left;
+}
+
+.city_name {
+	color: black;
+	font-size: 1.2em;
+	width:10px;
+	text-align:middle;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.clock_wrapper .timeZone {
+	color: black;
+	font-size: 0.8em;
+}
+
+#worldclock .clock_wrapper select {
+	width:92px;
+	background: transparent;
+	font-size: 10px;
+	line-height: 10px;
+	border: 0;
+	border-radius: 0;
+	height: 15px;
+	-webkit-appearance: none;
+	text-align:center;
+	padding-right:14px;
+}
+
+#select_div {
+	margin:auto;
+	width:94px;
+	margin-top:-5px;
+	background: url(../images/down_arrow.png) no-repeat right rgba(200, 200, 120, 0);
+}
+
+#worldclock .clock_wrapper  span input[type='text'] {
+	background:rgba(128, 128, 128, 0.3);
+	border:1px solid #111;
+	display:inline;
+	margin-top:2px;
+	height:13px;
+	text-align:center;
+	vertical-align:text-top;
+	padding:0px 5px 2px 5px;
+	width:84%;
+}
+
+#rcp ul {
+	border-right: 1px solid #000;
+	padding: 0;
+}
+
+#rcp li{
+	border-bottom: 1px solid #000;
+    margin: 0;
+	white-space:nowrap;
+}
+
+#rcp li a {
+	display: block;
+	padding: 5px 5px 5px 0.5em;
+	border-left: 5px solid #ccc;
+	background-color: rgba(80, 80, 80, 0.4);
+	white-space: nowrap;
+	overflow: hidden;
+	cursor:pointer;
+	text-overflow: ellipsis;
+}
+
+html>body #rcp li a {
+    width: auto;
+	text-align:left;
+}
+
+#rcp a {
+	text-align:left;
+	position:relative;
+	margin-left:5px;
+	margin-right:5px;
+	vertical-align:middle;
+	text-decoration: none;
+}
+
+.fav {
+	width:16px;
+	height:16px;
+	position:relative;
+	margin:0;
+	vertical-align:middle;
+}
+
+#rcp li a:hover {
+	border-left: 5px solid #D8D8D8 ;
+	background-color: rgba(90, 90, 90, 0.4);
+	color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(120,120,120,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #000000;
+    -webkit-box-shadow: inset 0 0 6px #444444;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: #000;
+}
+
+.contolls {
+	position:absolute;
+	top:0px;
+	right:-3px;
+	width:33px;
+	visibility:hidden;
+}
+
+.img_settings {
+	width:22px;
+	height:22px;
+	opacity:0.7;
+}
+
+.invisible {
+	visibility:hidden;
+}
+
+.invisible {
+	visibility:hidden;
+}
