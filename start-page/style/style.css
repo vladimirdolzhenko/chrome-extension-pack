@@ -37,7 +37,7 @@ body {
 #worldclock {
 	margin: 0 auto;
 	width: 960px;
-	/*height: 350px;*/
+	height: 350px;
 	border: none;
 	background: none;
 }

@@ -9,81 +9,46 @@
  var radius = 120;
  var defaultName = chrome.i18n.getMessage("current_time");
  var settings = "clock_list";
- var defaultClocks = [{id : 0, title: defaultName, gmt: (new Date().getTimezoneOffset() / 60 * -1)}];
+ var defaultClocks = [{id : 0, title: defaultName, timezone: 'Europe/Amsterdam'}];
  var maxAllowed = 6;
 
  function findPosX(obj) {
-    var curleft = 0;
-    if (obj.offsetParent) {
-        while (1) {
-            curleft+=obj.offsetLeft;
-            if (!obj.offsetParent) {
-                break;
-            }
-            obj=obj.offsetParent;
-        }
-    } else if (obj.x) {
-        curleft+=obj.x;
-    }
-    return curleft;
+	var curleft = 0;
+	if (obj.offsetParent) {
+		while (1) {
+			curleft+=obj.offsetLeft;
+			if (!obj.offsetParent) {
+				break;
+			}
+			obj=obj.offsetParent;
+		}
+	} else if (obj.x) {
+		curleft+=obj.x;
+	}
+	return curleft;
 }
 
 function findPosY(obj) {
-    var curtop = 0;
-    if (obj.offsetParent) {
-        while (1) {
-            curtop+=obj.offsetTop;
-            if (!obj.offsetParent) {
-                break;
-            }
-            obj=obj.offsetParent;
-        }
-    } else if (obj.y) {
-        curtop+=obj.y;
-    }
-    return curtop;
+	var curtop = 0;
+	if (obj.offsetParent) {
+		while (1) {
+			curtop+=obj.offsetTop;
+			if (!obj.offsetParent) {
+				break;
+			}
+			obj=obj.offsetParent;
+		}
+	} else if (obj.y) {
+		curtop+=obj.y;
+	}
+	return curtop;
 }
 
-var timeZones = [
-        {value:"-12",label:"(GMT -12:00) Eniwetok, Kwajalein"},
-        {value:"-11",label:"(GMT -11:00) Midway Island, Samoa"},
-        {value:"-10",label:"(GMT -10:00) Hawaii"},
-        {value:"-9",label:"(GMT -9:00) Alaska"},
-        {value:"-8",label:"(GMT -8:00) Pacific Time (US &amp; Canada)"},
-        {value:"-7",label:"(GMT -7:00) Mountain Time (US &amp; Canada)"},
-        {value:"-6",label:"(GMT -6:00) Central Time (US &amp; Canada), Mexico City"},
-        {value:"-5",label:"(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima"},
-        {value:"-4.5",label:"(GMT -4:30) Caracas"},
-        {value:"-4",label:"(GMT -4:00) Atlantic Time (Canada), La Paz"},
-        {value:"-3.5",label:"(GMT -3:30) Newfoundland"},
-        {value:"-3",label:"(GMT -3:00) Brazil, Buenos Aires, Georgetown"},
-        {value:"-2",label:"(GMT -2:00) Mid-Atlantic"},
-        {value:"-1",label:"(GMT -1:00) Azores, Cape Verde Islands"},
-        {value:"0",label:"(GMT) Western Europe Time, London, Lisbon, Casablanca"},
-        {value:"1",label:"(GMT +1:00) Brussels, Copenhagen, Madrid, Paris"},
-        {value:"2",label:"(GMT +2:00) Kaliningrad, South Africa"},
-        {value:"3",label:"(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg"},
-        {value:"3.5",label:"(GMT +3:30) Tehran"},
-        {value:"4",label:"(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi"},
-        {value:"4.5",label:"(GMT +4:30) Kabul"},
-        {value:"5",label:"(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent"},
-        {value:"5.5",label:"(GMT +5:30) Bombay, Calcutta, Madras, New Delhi"},
-        {value:"5.75",label:"(GMT +5:45) Kathmandu"},
-        {value:"6",label:"(GMT +6:00) Almaty, Dhaka, Colombo"},
-        {value:"6.5",label:"(GMT +6:30) Rangoon"},
-        {value:"7",label:"(GMT +7:00) Bangkok, Hanoi, Jakarta"},
-        {value:"8",label:"(GMT +8:00) Beijing, Perth, Singapore, Hong Kong"},
-        {value:"9",label:"(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk"},
-        {value:"9.5",label:"(GMT +9:30) Adelaide, Darwin"},
-        {value:"10",label:"(GMT +10:00) Eastern Australia, Guam, Vladivostok"},
-        {value:"11",label:"(GMT +11:00) Magadan, Solomon Islands, New Caledonia"},
-        {value:"12",label:"(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka"},
-        {value:"13",label:"(GMT +13:00) Nuku'alofa"}
-    ];
+var timeZoneNames = moment.tz.names()
 
 function getIndexByOffset(val) {
-	for(var i in timeZones) {
-		if( timeZones[i].value == val) {
+	for(var i in timeZoneNames) {
+		if( timeZoneNames[i] == val) {
 			return i;
 		}
 	}
@@ -94,7 +59,7 @@ function getOffsetById(id) {
 	var clocks = loadClocks();
 	for(var i in clocks) {
 		if(clocks[i].id == id) {
-			return clocks[i].gmt;
+			return clocks[i].timezone;
 		}
 	}
 	return 0;
@@ -116,7 +81,7 @@ function selectGmtOffset() {
 				continue;
 			}
 
-			if( select.options[j].getAttribute("val") == offset) {
+			if(select.options[j].getAttribute("val") == offset) {
 				select.selectedIndex = j;
 			}
 		}
@@ -124,7 +89,7 @@ function selectGmtOffset() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    var clockPlace = document.getElementById('worldclock');
+	var clockPlace = document.getElementById('worldclock');
 	clockPlace.setAttribute("class", "worldclock_less");
 
 	clockPlace.innerHTML = "";
@@ -139,35 +104,43 @@ document.addEventListener('DOMContentLoaded', function () {
 		clockPlace.setAttribute("class", "worldclock_more");
 	}
 
+	var now = new Date().getTime()
+
 	for(var i in clocks) {
-			var clockSettings = {
-				'Skin': localStorage.getItem('Skin') || 'swissRail',
-				'Radius': radius,
-				'noSeconds': localStorage.getItem('noSeconds') || '', //'noSeconds',
-				'GMTOffset': clocks[i].gmt,
-				'showDigital' : 'showDigital'
+		var tz = moment.tz.zone(clocks[i].timezone || 'UTC')
+		var gmtOffset = tz.utcOffset(now)/-60;
+		var timezoneAbbr = tz.abbr(now)
+		var clockSettings = {
+			'Skin': localStorage.getItem('Skin') || 'swissRail',
+			'Radius': radius,
+			'noSeconds': localStorage.getItem('noSeconds') || '', //'noSeconds',
+			'GMTOffset': gmtOffset,
+			'timezone': timezoneAbbr,
+			'showDigital' : 'showDigital'
+		}
+
+		var clockCanvas = '<div class="clock_wrapper" clockid="'+clocks[i].id+'">'
+			+ '<span class="city_name">'+ clocks[i].title +'</span><canvas id="c'+ (lastId++) +'" class="CoolClock:'
+			+ clockSettings.Skin + ':'
+			+ clockSettings.Radius + ':'
+			+ (clockSettings.noSeconds.length > 0 ? clockSettings.noSeconds : '') + ':'
+			+ clockSettings.GMTOffset + ':'
+			+ clockSettings.showDigital + ':'
+			+ ':'
+			+ clockSettings.timezone
+			+ '"></canvas>'
+			+ '<div id="select_div" class="invisible"><select>';
+
+			for(var j in timeZoneNames) {
+				clockCanvas += '<option val="'+ timeZoneNames[j] +'">' + timeZoneNames[j] + "</option>";
 			}
 
-			var clockCanvas = '<div class="clock_wrapper" clockid="'+clocks[i].id+'">'
-				+ '<span class="city_name">'+ clocks[i].title +'</span><canvas id="c'+ (lastId++) +'" class="CoolClock:'
-				+ clockSettings.Skin + ':'
-				+ clockSettings.Radius + ':'
-				+ (clockSettings.noSeconds.length > 0 ? clockSettings.noSeconds : '') + ':'
-				+ clockSettings.GMTOffset + ':'
-				+ clockSettings.showDigital
-				+ '"></canvas>'
-				+ '<div id="select_div" class="invisible"><select>';
-
-				for(var j in timeZones) {
-					clockCanvas += '<option val="'+ timeZones[j].value +'">' + timeZones[j].label + "</option>";
-				}
-
-				clockCanvas +='</select></div><div class="cont"></div>';
-				clockCanvas += '</div>';
-			clockPlace.innerHTML += clockCanvas;
+			clockCanvas +='</select></div><div class="cont"></div>';
+			clockCanvas += '</div>';
+		clockPlace.innerHTML += clockCanvas;
 	}
 
-    CoolClock.findAndCreateClocks();
+	CoolClock.findAndCreateClocks();
 	addEventListeners();
 	localize();
 	selectGmtOffset();
@@ -198,23 +171,25 @@ function addClock() {
 	}
 
 	var clockSettings = {
-        'Skin': 'chunkySwissOnBlack',
-        'Radius': radius,
-        'noSeconds': '', //'noSeconds',
-        'GMTOffset': gmtOffset
-    }
+		'Skin': 'chunkySwissOnBlack',
+		'Radius': radius,
+		'noSeconds': '', //'noSeconds',
+		'GMTOffset': gmtOffset
+	}
 
 	var id_ = Math.random();
 	var clockCanvas = '<div class="clock_wrapper" clockid="'+(id_)+'"><span class="city_name"><input type="text" value="'+ defaultName +'"/></span><canvas id="c'+ (lastId++) +'" class="CoolClock:'
-            + clockSettings.Skin + ':'
-            + clockSettings.Radius + ':'
-            + (clockSettings.noSeconds.length > 0 ? clockSettings.noSeconds : '') + ':'
-            + clockSettings.GMTOffset
-            + '"></canvas>';
+			+ clockSettings.Skin + ':'
+			+ clockSettings.Radius + ':'
+			+ (clockSettings.noSeconds.length > 0 ? clockSettings.noSeconds : '') + ':'
+			+ clockSettings.GMTOffset + ':'
+			+ clockSettings.showDigital + ':'
+			+ clockSettings.timezone
+			+ '"></canvas>';
 
 	clockCanvas += '<div id="select_div"><select>';
-	for(var i in timeZones) {
-		clockCanvas += '<option val="'+ timeZones[i].value +'">' + timeZones[i].label + "</option>";
+	for(var i in timeZoneNames) {
+		clockCanvas += '<option val="'+ timeZoneNames[i] +'">' + timeZoneNames[i] + "</option>";
 	}
 
 	clockCanvas +='</select></div><div class="cont"></div>';
@@ -222,7 +197,7 @@ function addClock() {
 	clockPlace.innerHTML += clockCanvas;
 	CoolClock.findAndCreateClocks();
 
-	clocks.push({id: id_, 'title': defaultName, gmt: gmtOffset});
+	clocks.push({id: id_, 'title': defaultName, timezone: gmtOffset});
 	saveClocks(clocks);
 	addListenersToSelects();
 	selectGmtOffset();
@@ -231,22 +206,22 @@ function addClock() {
 
 function changeClockInWrapper(id_, name, offset, target) {
 	var clockSettings = {
-        'Skin': localStorage.getItem('Skin') || 'chunkySwissOnBlack',
-        'Radius': radius,
-        'noSeconds': localStorage.getItem('noSeconds') || '', //'noSeconds',
-        'GMTOffset': offset
-    }
+		'Skin': localStorage.getItem('Skin') || 'chunkySwissOnBlack',
+		'Radius': radius,
+		'noSeconds': localStorage.getItem('noSeconds') || '', //'noSeconds',
+		'GMTOffset': offset
+	}
 	target.setAttribute("clockid", id_);
 	var clockCanvas = '<span class="city_name"><input type="text" value="'+ name +'"/></span><canvas id="c'+ (lastId++) +'" class="CoolClock:'
-            + clockSettings.Skin + ':'
-            + clockSettings.Radius + ':'
-            + (clockSettings.noSeconds.length > 0 ? clockSettings.noSeconds : '') + ':'
-            + clockSettings.GMTOffset
-            + '"></canvas>';
+			+ clockSettings.Skin + ':'
+			+ clockSettings.Radius + ':'
+			+ (clockSettings.noSeconds.length > 0 ? clockSettings.noSeconds : '') + ':'
+			+ clockSettings.GMTOffset
+			+ '"></canvas>';
 
 	clockCanvas += '<div id="select_div"><select>';
-	for(var i in timeZones) {
-		clockCanvas += '<option val="'+ timeZones[i].value +'">' + timeZones[i].label + "</option>";
+	for(var i in timeZoneNames) {
+		clockCanvas += '<option val="'+ timeZoneNames[i] +'">' + timeZoneNames[i] + "</option>";
 	}
 
 	clockCanvas +='</select></div><div class="cont">';
@@ -452,7 +427,7 @@ function changeGsmOffset(id, offset) {
 	var name = "";
 	for(var i in clocks) {
 		if(clocks[i].id == id) {
-			clocks[i].gmt = offset;
+			clocks[i].timezone = offset;
 			name = clocks[i].title;
 			break;
 		}

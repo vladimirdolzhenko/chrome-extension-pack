@@ -76,6 +76,7 @@ CoolClock.prototype = {
 		this.renderRadius   = options.renderRadius || CoolClock.config.renderRadius;
 		this.showSecondHand = typeof options.showSecondHand == "boolean" ? options.showSecondHand : true;
 		this.gmtOffset      = (options.gmtOffset != null && options.gmtOffset != '') ? parseFloat(options.gmtOffset) : null;
+		this.timezone       = options.timezone || 'UTC';
 		this.showDigital    = typeof options.showDigital == "boolean" ? options.showDigital : false;
 		this.logClock       = typeof options.logClock == "boolean" ? options.logClock : false;
 		this.logClockRev    = typeof options.logClock == "boolean" ? options.logClockRev : false;
@@ -251,15 +252,14 @@ CoolClock.prototype = {
 				this.renderRadius+this.renderRadius/3
 			);
 			var offset = this.gmtOffset || (new Date().getTimezoneOffset()/-60)
-			var timeZone = "UTC " + (offset >= 0 ? "+": "") + offset
+			var utcOffset = "UTC " + (offset >= 0 ? "+": "") + offset
 			this.drawTextAt(
-				timeZone,
+				this.timezone + ', ' + utcOffset,
 				this.renderRadius,
 				this.renderRadius+this.renderRadius/3+15,
 				null,
 				"10px sans-serif"
 			);
-
 			var dayMonth = day + " " + this.month[month].substr(0, 3)
 			this.drawTextAt(
 				dayMonth,
@@ -379,7 +379,8 @@ CoolClock.findAndCreateClocks = function() {
 				gmtOffset:      fields[4],
 				showDigital:    fields[5]=='showDigital',
 				logClock:       fields[6]=='logClock',
-				logClockRev:    fields[6]=='logClockRev'
+				logClockRev:    fields[6]=='logClockRev',
+				timezone:       fields[7],
 			});
 		}
 	}
