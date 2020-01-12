@@ -254,7 +254,7 @@ CoolClock.prototype = {
 			var offset = this.gmtOffset || (new Date().getTimezoneOffset()/-60)
 			var utcOffset = "UTC " + (offset >= 0 ? "+": "") + offset
 			this.drawTextAt(
-				this.timezone + ', ' + utcOffset,
+				this.timezone,
 				this.renderRadius,
 				this.renderRadius+this.renderRadius/3+15,
 				null,
@@ -265,6 +265,13 @@ CoolClock.prototype = {
 				dayMonth,
 				this.renderRadius,
 				this.renderRadius-this.renderRadius/3,
+				null,
+				"10px sans-serif"
+			);
+			this.drawTextAt(
+				utcOffset,
+				this.renderRadius,
+				this.renderRadius-this.renderRadius/3+15,
 				null,
 				"10px sans-serif"
 			);
