@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		clockPlace.setAttribute("class", "worldclock_more");
 	}
 
-	var now = new Date().getTime()
+	var now = new Date().getTime();
 
 	for(var i in clocks) {
 		var tz = moment.tz.zone(clocks[i].timezone || 'UTC')
